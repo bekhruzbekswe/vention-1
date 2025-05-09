@@ -209,7 +209,29 @@ label {
       background-color: #555;
 }
 
+.mobile-only {
+      display: none;
+}
 
+.action-button {
+      margin-top: 20px;
+      padding: 8px 16px;
+      font-size: 1em;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      flex-shrink: 0;
+      min-width: 50px;
+}
+  
+  .action-button a {
+      display: inline-block;
+      padding: 8px 16px;
+      text-decoration: none;
+      width: 100%;
+}
+  
 
 
 
@@ -239,5 +261,8 @@ label {
       font-size: 0.9em;
       }
       
+      .mobile-only {
+            display: block;
+      }
      
 }
