@@ -16,8 +16,9 @@
 
     <main class="container">
         @if(session('success'))
-            <div class="alert alert-success">
+            <div class="alert" id="success-alert">
                 {{ session('success') }}
+                <button onclick="document.getElementById('success-alert').style.display='none';">x</button>
             </div>
         @endif
 
