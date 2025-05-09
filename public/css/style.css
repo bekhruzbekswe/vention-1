@@ -1,0 +1,215 @@
+body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+}
+.navbar {
+      color: #ffffff;
+      background-color: #333333;
+      padding: 2px 6px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+}
+
+.navbar-brand {
+      text-decoration: none;
+      color: #ffffff;
+      font-size: xx-large;
+}
+
+.container {
+      padding: 1%;
+}
+
+  
+.contact-container {
+      padding: 20px;
+      margin: auto; 
+}
+
+.add-button {
+      display: inline-block;
+      background-color: #4caf50;
+      color: #ffffff;
+      padding: 10px 20px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+      background-color: #29772d;
+}
+
+.contact-table {
+      width: 100%;
+      border-collapse:collapse;
+      margin-bottom: 20px;
+}
+
+.contact-table th, .contact-table td {
+      padding: 15px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+}
+
+.contact-row:hover {
+      background-color: #f2f2f2;
+}
+
+.contact-phone {
+      color: #007bff;
+      text-decoration: none;
+}
+
+.contact-phone:hover {
+      text-decoration: underline;
+}
+
+.actions {
+      display: flex;
+      gap: 10px;
+}
+
+.edit-button {
+      background-color: #f0ad4e;
+      color: #ffffff;
+      padding: 5px 10px;
+      border-radius: 3px;
+      font-size: 14px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+}
+
+.edit-button:hover {
+      background-color: #ec971f;
+}
+
+.delete-button {
+      background-color: #d9534f;
+      color: #ffffff;
+      padding: 5px 10px;
+      border-radius: 3px;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+      background-color: #c9302c;
+}
+
+.no-contacts {
+      color: #999;
+      font-style: italic;
+}
+
+.contact-header {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #333;
+      border-bottom: 2px solid #f0f0f0;
+      padding-bottom: 10px;
+}
+
+label {
+      
+      display: block;
+      margin: 8px;
+}
+
+.form-input {
+      width: 50%;
+      background-color: transparent;
+      padding: 0 10px;
+      border: none;
+      border-bottom: 1px solid #ddd;
+      font-size: 1.5em;
+      margin-bottom: 5px;
+      transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+      border-color: #007bff;
+      outline: none;
+}
+
+.form-error {
+      color: #d9534f;
+      font-size: 0.9em;
+      margin-top: -5px;
+      margin-bottom: 10px;
+}
+
+.buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+}
+
+
+.save-button {
+      background-color: #4caf50;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+}
+
+.save-button:hover {
+      background-color: #29772d;
+}
+
+.cancel-button {
+      background-color: #777;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+}
+
+.cancel-button:hover {
+      background-color: #555;
+}
+
+
+
+
+
+@media (max-width: 760px) {
+      .navbar-brand {
+            font-size: large; 
+      }
+      .add-button {
+            padding: 6px 10px;
+            font-size: small;
+      }
+      .form-input{
+            width: 90%;
+      }
+      .contact-table th:last-child,
+      .contact-table td.actions,
+      .contact-table th:nth-child(2),
+      .contact-table td:nth-child(2) {
+            display: none;
+      }
+      .contact-table th, .contact-table td {
+            padding: 10px;
+            font-size: 0.9em;
+      }
+      
+      .contact-table {
+      font-size: 0.9em;
+      }
+      
+     
+}
