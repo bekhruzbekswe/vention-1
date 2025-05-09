@@ -29,7 +29,7 @@ class ContactController extends Controller
             ],
             'notes' => 'nullable|string',
         ], [
-            'phone.regex' => 'The phone number must only contain numbers and can optionally start with a +.',
+            'phone.regex' => 'The phone number must only contain numbers and can optionally start with a plus',
         ]);
         
 
