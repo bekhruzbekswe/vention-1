@@ -24,11 +24,14 @@ class ContactController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'nullable|email',
             'phone' => [
-            'nullable', 
-            'regex:/^\+?\d{10,20}$/',
+                'nullable', 
+                'regex:/^\+?\d{10,20}$/',
             ],
             'notes' => 'nullable|string',
+        ], [
+            'phone.regex' => 'The phone number must only contain numbers and can optionally start with a +.',
         ]);
+        
 
         Contact::create($validated);
 

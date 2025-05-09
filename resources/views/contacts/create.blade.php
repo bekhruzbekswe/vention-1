@@ -8,18 +8,27 @@
         <div class="mb-3">
             <label>Name</label>
             <input type="text" name="name" class="form-control" required>
+            @error('name')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="mb-3">
             <label>Email</label>
             <input type="email" name="email" class="form-control">
+            @error('email')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="mb-3">
             <label>Phone</label>
-            <input type="text" name="phone" class="form-control">
+            <input type="text" name="phone" class="form-control" value="{{ old('phone') }}">
+            @error('phone')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="mb-3">
             <label>Notes</label>
-            <textarea name="notes" class="form-control"></textarea>
+            <textarea name="notes" class="form-control">{{ old('notes') }}</textarea>
         </div>
         <button class="btn btn-success">Save</button>
         <a href="{{ route('contacts.index') }}" class="btn btn-secondary">Cancel</a>
