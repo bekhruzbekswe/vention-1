@@ -4,6 +4,7 @@ body {
       margin: 0;
       padding: 0;
 }
+
 .navbar {
       color: #ffffff;
       background-color: #333333;
@@ -13,12 +14,22 @@ body {
       z-index: 1000;
 }
 
-.navbar-brand {
+.navbar__container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+}
+
+.navbar__brand {
       text-decoration: none;
       color: #ffffff;
       font-size: xx-large;
 }
-
+  
+.main-container {
+      padding: 1%;
+}
+  
 .alert {
       background-color: #dff0d8;
       color: #3c763d;
@@ -26,10 +37,16 @@ body {
       border-radius: 5px;
       margin-bottom: 20px;
       position: relative;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.alert button {
+.alert--success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+}
+
+.alert__close-btn {
       background: none;
       border: none;
       color: #3c763d;
@@ -42,21 +59,16 @@ body {
       font-size: 1.2em;
 }
 
-.alert button:hover {
+.alert__close-btn:hover {
       color: #d9534f;
 }
-
-.container {
-      padding: 1%;
-}
-
-  
-.contact-container {
+ 
+.contacts-container {
       padding: 20px;
-      margin: auto; 
+      margin: auto;
 }
-
-.add-button {
+  
+.contacts-container__add-button {
       display: inline-block;
       background-color: #4caf50;
       color: #ffffff;
@@ -68,201 +80,78 @@ body {
       transition: background-color 0.3s ease;
 }
 
-.add-button:hover {
+.contacts-container__add-button:hover {
       background-color: #29772d;
 }
-
-.contact-table {
+  
+.contacts-table {
       width: 100%;
-      border-collapse:collapse;
+      border-collapse: collapse;
       margin-bottom: 20px;
 }
 
-.contact-table th, .contact-table td {
+.contacts-table__header,
+.contacts-table__cell {
       padding: 15px;
       border-bottom: 1px solid #ddd;
       text-align: left;
 }
 
-.contact-row:hover {
+.contacts-table__row--clickable:hover {
       background-color: #f2f2f2;
 }
-
-.contact-phone {
+  
+.contacts-table__phone {
       color: #007bff;
       text-decoration: none;
 }
 
-.contact-phone:hover {
+.contacts-table__phone:hover {
       text-decoration: underline;
 }
-
-.actions {
+  
+.contacts-table__actions {
       display: flex;
       gap: 10px;
+      align-items: center;
+      justify-content: flex-start;
 }
-
-.edit-button {
-      background-color: #f0ad4e;
-      color: #ffffff;
+  
+.contacts-table__action-button {
       padding: 5px 10px;
       border-radius: 3px;
       font-size: 14px;
+      color: #ffffff;
       text-decoration: none;
+      cursor: pointer;
       transition: background-color 0.3s ease;
+      box-sizing: border-box;
 }
 
-.edit-button:hover {
+.contacts-table__action-button--edit {
+      background-color: #f0ad4e;
+}
+
+.contacts-table__action-button--edit:hover {
       background-color: #ec971f;
 }
-
-.delete-button {
+  
+.contacts-table__action-button--delete {
       background-color: #d9534f;
-      color: #ffffff;
-      padding: 5px 10px;
-      border-radius: 3px;
       border: none;
-      cursor: pointer;
-      font-size: 14px;
-      transition: background-color 0.3s ease;
 }
 
-.delete-button:hover {
+.contacts-table__action-button--delete:hover {
       background-color: #c9302c;
 }
-
-.no-contacts {
+  
+.contacts-table__action-form {
+      margin: 0;
+}
+  
+.contacts-container__empty-message {
       color: #999;
       font-style: italic;
-}
-
-.contact-header {
-      font-size: 2em;
-      margin-bottom: 20px;
-      color: #333;
-      border-bottom: 2px solid #f0f0f0;
-      padding-bottom: 10px;
-}
-
-label {
-      color: #3534347f;
-      display: block;
-      margin: 8px;
-}
-
-.form-input {
-      width: 50%;
-      background-color: transparent;
-      padding: 0 10px;
-      border: none;
-      border-bottom: 1px solid #ddd;
-      font-size: 1.5em;
-      margin-bottom: 5px;
-      transition: border-color 0.3s ease;
-}
-
-.form-input:focus {
-      border-color: #007bff;
-      outline: none;
-}
-
-.form-error {
-      color: #d9534f;
-      font-size: 0.9em;
-      margin-top: -5px;
-      margin-bottom: 10px;
-      margin-left: 8px;
-}
-
-.buttons {
-      display: flex;
-      gap: 10px;
-      margin-top: 15px;
-}
-
-
-.save-button {
-      background-color: #4caf50;
-      color: #ffffff;
-      padding: 10px 20px;
-      border-radius: 5px;
-      border: none;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-}
-
-.save-button:hover {
-      background-color: #29772d;
-}
-
-.cancel-button {
-      background-color: #777;
-      color: #ffffff;
-      padding: 10px 20px;
-      border-radius: 5px;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-}
-
-.cancel-button:hover {
-      background-color: #555;
-}
-
-.mobile-only {
-      display: none;
-}
-
-.action-button {
       margin-top: 20px;
-      padding: 8px 16px;
-      font-size: 1em;
-      border-radius: 4px;
-      border: none;
-      cursor: pointer;
-      text-align: center;
-      flex-shrink: 0;
-      min-width: 50px;
 }
   
-  .action-button a {
-      display: inline-block;
-      padding: 8px 16px;
-      text-decoration: none;
-      width: 100%;
-}
-  
-
-
-
-@media (max-width: 760px) {
-      .navbar-brand {
-            font-size: large; 
-      }
-      .add-button {
-            padding: 6px 10px;
-            font-size: small;
-      }
-      .form-input{
-            width: 90%;
-      }
-      .contact-table th:last-child,
-      .contact-table td.actions,
-      .contact-table th:nth-child(2),
-      .contact-table td:nth-child(2) {
-            display: none;
-      }
-      .contact-table th, .contact-table td {
-            padding: 10px;
-            font-size: 0.9em;
-      }
-      
-      .contact-table {
-      font-size: 0.9em;
-      }
-      
-      .mobile-only {
-            display: block;
-      }
-     
-}

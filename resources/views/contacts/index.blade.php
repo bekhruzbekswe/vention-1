@@ -1,37 +1,50 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="contact-container">
-    <a href="{{ route('contacts.create') }}" class="add-button">Add Contact</a>
+<div class="contacts-container">
+    <a href="{{ route('contacts.create') }}" class="contacts-container__add-button">Add Contact</a>
 
     @if($contacts->count())
-        <table class="contact-table">
-            <thead>
-                <tr>
-                    <th>Name</th><th>Email</th><th>Phone</th><th>Actions</th>
+        <table class="contacts-table">
+            <thead class="contacts-table__head">
+                <tr class="contacts-table__header-row">
+                    <th class="contacts-table__header">Name</th>
+                    <th class="contacts-table__header">Email</th>
+                    <th class="contacts-table__header">Phone</th>
+                    <th class="contacts-table__header">Actions</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="contacts-table__body">
                 @foreach($contacts as $contact)
-                    <tr onclick="window.location='{{ route('contacts.show', $contact) }}'" class="contact-row">
-                        <td>{{ $contact->name }}</td>
-                        <td>{{ $contact->email }}</td>
-                        <td><a href="tel:{{ $contact->phone }}" class="contact-phone">{{ $contact->phone }}</a></td>
-                        <td class="actions">
-                            <a href="{{ route('contacts.edit', $contact) }}" class="edit-button">Edit</a>
-                            <form action="{{ route('contacts.destroy', $contact) }}" method="POST" class="delete-form">
-                                @csrf
-                                @method('DELETE')
-                                <button onclick="return confirm('Delete this contact?')" class="delete-button">Delete</button>
-                            </form>
+                    <tr class="contacts-table__row contacts-table__row--clickable" onclick="window.location='{{ route('contacts.show', $contact) }}'">
+                        <td class="contacts-table__cell">{{ $contact->name }}</td>
+                        <td class="contacts-table__cell">{{ $contact->email }}</td>
+                        <td class="contacts-table__cell">
+                            <a href="tel:{{ $contact->phone }}" class="contacts-table__phone">{{ $contact->phone }}</a>
                         </td>
+                        <td class="contacts-table__cell">
+                            <div class="contacts-table__actions">
+                                <a href="{{ route('contacts.edit', $contact) }}" class="contacts-table__action-button contacts-table__action-button--edit">
+                                    Edit
+                                </a>
+
+                                <form action="{{ route('contacts.destroy', $contact) }}" method="POST" class="contacts-table__action-form">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button onclick="return confirm('Delete this contact?')" class="contacts-table__action-button contacts-table__action-button--delete">
+                                        Delete
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+
+
                     </tr>
                 @endforeach
             </tbody>
         </table>
     @else
-        <p class="no-contacts">No contacts found.</p>
+        <p class="contacts-container__empty-message">No contacts found.</p>
     @endif
 </div>
 @endsection
-
