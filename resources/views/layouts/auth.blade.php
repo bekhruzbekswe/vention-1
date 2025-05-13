@@ -8,6 +8,17 @@
 </head>
 <body>
     <div class="auth">
+        @if ($errors->any())
+            <div class="alert alert--error" id="error-alert">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+                <button class="alert__close-btn--error" onclick="document.getElementById('error-alert').style.display='none';">&times;</button>
+            </div>
+        @endif
+        
         <div class="auth__blob auth__blob--1"></div>
         <div class="auth__blob auth__blob--2"></div>
         <div class="auth__blob auth__blob--3"></div>

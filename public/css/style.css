@@ -419,16 +419,69 @@ body {
   
 
  /* ########## Auth Style ########## */
-
 .auth {
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-direction: column;
       min-height: 100vh;
       background-color: #f9f9f9;
       position: relative;
       overflow: hidden;
 }
+  
+.auth__container {
+      position: relative;
+      z-index: 2;
+      background-color: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      width: 90%;
+      max-width: 400px;
+}
+  
+.alert--error {
+      background-color: rgba(255, 107, 107, 0.95);
+      border-radius: 12px;
+      color: #ffffff;
+      padding: 15px 20px;
+      font-weight: 500;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      z-index: 2;
+      width: 90%;
+      max-width: 400px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+}
+  
+.alert__close-btn--error {
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-size: 1.25rem;
+      font-weight: bold;
+      cursor: pointer;
+      outline: none;
+}
+  
+.alert__close-btn--error:hover {
+      color: #000000;
+}
+  
+.alert--error ul {
+      padding-left: 20px;
+      margin: 0;
+}
+  
+.alert--error ul li {
+      margin-left: 10px;
+}
+  
   
 .auth__blob {
       position: absolute;
@@ -460,18 +513,6 @@ body {
       background-color: #ffe66d;
       top: 300px;
       right: -150px;
-}
-  
-.auth__container {
-      position: relative;
-      z-index: 2;
-      background-color: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(15px);
-      border-radius: 20px;
-      padding: 40px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-      width: 90%;
-      max-width: 400px;
 }
   
 .auth__title {
@@ -555,4 +596,14 @@ body {
             display: block;
             
       }
+      .alert--error {
+            width: 90%;
+            max-width: 300px;
+            font-size: 0.9rem;
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+      }
+    
+
 }
