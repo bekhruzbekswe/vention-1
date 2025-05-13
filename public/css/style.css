@@ -154,6 +154,113 @@ body {
       font-style: italic;
       margin-top: 20px;
 }
+
+.contact-form {
+      padding: 20px;
+      background-color: transparent;
+}
+  
+.contact-form__title {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #333;
+      border-bottom: 2px solid #f0f0f0;
+      padding-bottom: 10px;
+}
+  
+.contact-form__group {
+      margin-bottom: 15px;
+}
+  
+.contact-form__label {
+      color: #3534347f;
+      display: block;
+      margin: 8px 0;
+}
+  
+.contact-form__input,
+.contact-form__textarea {
+      width: 50%;
+      background-color: transparent;
+      padding: 0 10px;
+      border: none;
+      border-bottom: 1px solid #ddd;
+      font-size: 1.5em;
+      margin-bottom: 5px;
+      transition: border-color 0.3s ease;
+}
+  
+.contact-form__input:focus,
+.contact-form__textarea:focus {
+      border-color: #007bff;
+      outline: none;
+}
+  
+.contact-form__error {
+      color: #d9534f;
+      font-size: 0.9em;
+      margin-top: -5px;
+      margin-bottom: 10px;
+      margin-left: 8px;
+}
+  
+.contact-form__actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+}
+  
+.contact-form__button {
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+}
+  
+.contact-form__button--save {
+      background-color: #4caf50;
+      color: #ffffff;
+}
+  
+.contact-form__button--save:hover {
+      background-color: #29772d;
+}
+  
+.contact-form__button--cancel {
+      background-color: #777;
+      color: #ffffff;
+      text-decoration: none;
+}
+  
+.contact-form__button--cancel:hover {
+      background-color: #555;
+}
+  
+.contact-form__mobile-only {
+      display: none;
+}
+  
+.contact-form__action-button {
+      margin-top: 20px;
+      padding: 8px 16px;
+      font-size: 1em;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      flex-shrink: 0;
+      min-width: 50px;
+}
+  
+.contact-form__action-button a {
+      display: inline-block;
+      padding: 8px 16px;
+      text-decoration: none;
+      width: 100%;
+}
+  
   
 
 @media (max-width: 760px) {
@@ -167,6 +274,13 @@ body {
       .contacts-table__cell {
           padding: 10px;
          
+      }
+      .contact-form__input, .contact-form__textarea {
+            width: 94%;
+            font-size: small;
+      }
+      .contact-form__label {
+            font-size: small;
       }
   
 }
