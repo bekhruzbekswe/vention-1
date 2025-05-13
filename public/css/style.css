@@ -296,7 +296,7 @@ body {
 
 .contact-view__actions {
       display: flex;
-      gap: 15px;
+      gap: 10px;
       align-items: center;
       flex-wrap: wrap;
       margin-top: 15px;
@@ -323,13 +323,13 @@ body {
 }
   
 .contact-view__button--edit {
-      background-color: #4caf50;
+      background-color: #f0ad4e;
 }
   
 .contact-view__button--edit:hover {
-      background-color: #29772d;
+      background-color: #ec971f;
 }
-  
+
 .contact-view__button--delete {
       background-color: #d9534f;
 }
