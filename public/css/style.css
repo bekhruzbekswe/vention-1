@@ -8,23 +8,43 @@ body {
 .navbar {
       color: #ffffff;
       background-color: #333333;
-      padding: 2px 6px;
+      padding: 10px 20px;
       position: sticky;
       top: 0;
       z-index: 1000;
 }
-
+  
 .navbar__container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 1rem;
 }
-
+  
 .navbar__brand {
       text-decoration: none;
       color: #ffffff;
       font-size: xx-large;
 }
+  
+.navbar__link {
+      background-color: transparent;
+      color: #e63946;
+      border: 1px solid #e63946; 
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s, color 0.3s;
+}
+  
+.navbar__link:hover {
+      color: #ffffff;
+      background-color: #e63946;
+      border: 1px solid transparent;
+}  
   
 .main-container {
       padding: 1%;
@@ -367,6 +387,134 @@ body {
       .contact-view__button--mobile {
             display: block;
       }
+      .navbar__link {
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            background-color: transparent;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .navbar__link span {
+            display: none;
+        }  
+        .navbar__link::before {
+            content: "\f2f5"; 
+            font-family: "Font Awesome 5 Free";
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 1.55rem;
+        }   
+        .navbar__link:hover {
+              background-color: transparent;
+              border: none;
+        }
+        
+
+      
   
 }
   
+
+ /* ###### Auth Style ###### */
+.auth {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-color: #f9f9f9;
+}
+  
+.auth__container {
+      width: 100%;
+      max-width: 500px;
+      padding: 2rem;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+}
+  
+.auth__title {
+      margin-bottom: 1.5rem;
+      text-align: center;
+      font-size: 2rem;
+}
+  
+.auth__form {
+      display: flex;
+      flex-direction: column;
+}
+  
+.auth__input {
+      width: 94%;
+      margin-bottom: 1rem;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+}
+  
+
+.auth__input-group {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+}
+  
+
+.auth__input--inline {
+      flex: 1;
+      margin-bottom: 0; 
+}
+  
+  
+.auth__button {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s;
+}
+  
+.auth__button:hover {
+      background-color: #0056b3;
+}
+  
+.auth__message {
+      margin-top: 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+}
+  
+.auth__link {
+      color: #007bff;
+      text-decoration: none;
+}
+  
+.auth__link:hover {
+      text-decoration: underline;
+}
+
+@media (max-width: 760px) {
+      .auth__container{
+            max-width: 250px;
+      }
+      .auth__input{
+            max-width: 90%;
+      }
+       /* Maybe it is better idea to use another class in mobile instead of modifying  inline class */
+      .auth__input--inline {
+         
+            margin-bottom: 1rem;
+      }
+      .auth__input-group{
+            display: block;
+            
+      }
+}

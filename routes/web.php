@@ -13,7 +13,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/', function () {
         return redirect()->route('contacts.index');
     });
-
+   
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::resource('contacts', ContactController::class);
 });
