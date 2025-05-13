@@ -155,3 +155,19 @@ body {
       margin-top: 20px;
 }
   
+
+@media (max-width: 760px) {
+      .contacts__header--email,
+      .contacts__cell--email,
+      .contacts__header--actions,
+      .contacts__cell--actions {
+          display: none;
+      }
+  
+      .contacts-table__cell {
+          padding: 10px;
+         
+      }
+  
+}
+  
