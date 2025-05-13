@@ -8,6 +8,10 @@
 </head>
 <body>
     <div class="auth">
+        <div class="auth__blob auth__blob--1"></div>
+        <div class="auth__blob auth__blob--2"></div>
+        <div class="auth__blob auth__blob--3"></div>
+
         <div class="auth__container">
             @yield('content')
         </div>
