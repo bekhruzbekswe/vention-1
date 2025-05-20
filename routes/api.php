@@ -2,12 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\API\ContactController;
+use App\Http\Controllers\Api\ContactController;
+use App\Http\Controllers\Api\AuthController;
 
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
 
 // Route::get('contacts', [ContactController::class, 'index']);
 // Route::post('contacts', [ContactController::class, 'store']);
@@ -15,5 +13,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Route::put('contacts/{id}', [ContactController::class, 'update']);
 // Route::delete('contacts/{id}', [ContactController::class, 'destroy']);
 
+Route::post('/login', [AuthController::class, 'login']);
 
-Route::apiResource('contacts', ContactController::class);
+Route::middleware('auth:sanctum')->group(function () {
+    Route::apiResource('contacts', ContactController::class);
+    Route::post('/logout', [AuthController::class, 'logout']);
+});
