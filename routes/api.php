@@ -3,17 +3,26 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\ContactController;
+use App\Http\Middleware\Authenticate;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+
+Route::middleware(['auth:sanctum', Authenticate::class])->group(function () {
+    Route::get('/user', fn(Request $request) => $request->user());
+    Route::apiResource('contacts', ContactController::class);
 });
 
-// Route::get('contacts', [ContactController::class, 'index']);
-// Route::post('contacts', [ContactController::class, 'store']);
-// Route::get('contacts/{id}', [ContactController::class, 'show']);
-// Route::put('contacts/{id}', [ContactController::class, 'update']);
-// Route::delete('contacts/{id}', [ContactController::class, 'destroy']);
+Route::post('/login', function (Request $request) {
+    $user = User::where('email', $request->email)->first();
 
+    if (! $user || ! Hash::check($request->password, $user->password)) {
+        return response()->json(['message' => 'Invalid credentials'], 401);
+    }
 
-Route::apiResource('contacts', ContactController::class);
+    return response()->json([
+        'token' => $user->createToken('api-token')->plainTextToken,
+    ]);
+});
+
