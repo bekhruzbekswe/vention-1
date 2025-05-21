@@ -15,32 +15,48 @@
                 </tr>
             </thead>
             <tbody class="contacts-table__body">
-                @foreach($contacts as $contact)
-                    <tr class="contacts-table__row contacts-table__row--clickable" onclick="window.location='{{ route('contacts.show', $contact) }}'">
-                        <td class="contacts-table__cell">{{ $contact->name }}</td>
-                        <td class="contacts-table__cell contacts__cell--email">{{ $contact->email }}</td>
-                        <td class="contacts-table__cell">
+            @foreach($contacts as $contact)
+                <tr
+                    class="contacts-table__row contacts-table__row--clickable {{ $contact->is_blocked ? 'contacts-table__row--blocked' : '' }}"
+                    onclick="window.location='{{ route('contacts.show', $contact) }}'">
+                    
+                    <td class="contacts-table__cell">{{ $contact->name }}</td>
+
+                    <td class="contacts-table__cell contacts__cell--email">
+                        {{ $contact->is_blocked ? '••••••••' : $contact->email }}
+                    </td>
+
+                    <td class="contacts-table__cell">
+                        @if($contact->is_blocked)
+                            <span class="contacts-table__phone">••••••••</span>
+                        @else
                             <a href="tel:{{ $contact->phone }}" class="contacts-table__phone">{{ $contact->phone }}</a>
-                        </td>
-                        <td class="contacts-table__cell contacts__cell--actions">
-                            <div class="contacts-table__actions">
-                                <a href="{{ route('contacts.edit', $contact) }}" class="contacts-table__action-button contacts-table__action-button--edit">
-                                    Edit
-                                </a>
+                        @endif
+                    </td>
 
-                                <form action="{{ route('contacts.destroy', $contact) }}" method="POST" class="contacts-table__action-form">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button onclick="return confirm('Delete this contact?')" class="contacts-table__action-button contacts-table__action-button--delete">
-                                        Delete
-                                    </button>
-                                </form>
-                            </div>
-                        </td>
+                    <td class="contacts-table__cell contacts__cell--actions">
+    <div class="contacts-table__actions">
+        @if($contact->is_blocked)
+            <span class="contacts-table__blocked-label">Blocked</span>
+        @else
+            <a href="{{ route('contacts.edit', $contact) }}" class="contacts-table__action-button contacts-table__action-button--edit">
+                Edit
+            </a>
 
+            <form action="{{ route('contacts.destroy', $contact) }}" method="POST" class="contacts-table__action-form">
+                @csrf
+                @method('DELETE')
+                <button onclick="return confirm('Delete this contact?')" class="contacts-table__action-button contacts-table__action-button--delete">
+                    Delete
+                </button>
+            </form>
+        @endif
+    </div>
+</td>
 
-                    </tr>
-                @endforeach
+                </tr>
+            @endforeach
+
             </tbody>
         </table>
     @else

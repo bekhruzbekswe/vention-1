@@ -120,6 +120,20 @@ body {
 .contacts-table__row--clickable:hover {
       background-color: #f2f2f2;
 }
+
+.contacts-table__row--blocked {
+      opacity: 0.5;
+      pointer-events: none; 
+      cursor: not-allowed;
+}
+
+.contacts-table__blocked-label {
+      color: #b00020;
+      font-weight: bold;
+      font-size: 0.95rem;
+      padding-left: 0.1rem;
+}
+  
   
 .contacts-table__phone {
       color: #007bff;
@@ -606,4 +620,229 @@ body {
       }
     
 
+}
+
+
+.admin-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.admin-container__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+}
+
+.admin-container__title {
+      font-size: 28px;
+      font-weight: 600;
+      color: #333;
+      margin: 0;
+}
+
+.admin-container__add-button {
+      display: inline-block;
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 18px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background-color 0.2s ease;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.admin-container__add-button:hover {
+      background-color: #3d9140;
+}
+
+.admin-actions {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 18px;
+}
+
+.admin-actions__bulk {
+      display: flex;
+      gap: 12px;
+}
+
+.admin-actions__btn {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      opacity: 0.9;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+.admin-actions__btn:hover:not(:disabled) {
+      opacity: 1;
+      transform: translateY(-1px);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.12);
+}
+
+.admin-actions__btn:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+}
+
+.admin-actions__btn--delete {
+      background-color: #f44336;
+      color: white;
+}
+
+.admin-actions__btn--block {
+      background-color: #ff9800;
+      color: white;
+}
+
+.admin-actions__btn--unblock {
+      background-color: #4CAF50;
+      color: white;
+}
+
+.admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+}
+
+.admin-table__head {
+      background-color: #f8f9fa;
+}
+
+.admin-table__header {
+      padding: 16px;
+      text-align: left;
+      font-weight: 600;
+      color: #333;
+      border-bottom: 2px solid #eee;
+}
+
+.admin-table__header--selector {
+      width: 50px;
+}
+
+.admin-table__header--status {
+      width: 80px;
+      text-align: center;
+}
+
+.admin-table__row {
+      border-bottom: 1px solid #eee;
+      transition: background-color 0.2s;
+}
+
+.admin-table__row:hover {
+      background-color: #f9f9f9;
+}
+
+.admin-table__cell {
+      padding: 14px 16px;
+}
+
+.admin-table__cell--status {
+      text-align: center;
+}
+
+.admin-table__cell--selector {
+      text-align: center;
+}
+
+.admin-table__phone {
+      color: #2196F3;
+      text-decoration: none;
+      transition: color 0.2s;
+}
+
+.admin-table__phone:hover {
+      color: #0b7dda;
+      text-decoration: underline;
+}
+
+.admin-checkbox {
+      position: relative;
+      display: inline-block;
+}
+
+.admin-checkbox__input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+}
+
+.admin-checkbox__label {
+      position: relative;
+      cursor: pointer;
+      height: 20px;
+      width: 20px;
+      display: block;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      transition: all 0.2s;
+}
+
+  .admin-checkbox__input:checked + .admin-checkbox__label {
+      background-color: #2196F3;
+      border-color: #2196F3;
+}
+
+.admin-checkbox__input:checked + .admin-checkbox__label:after {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 2px;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+}
+
+.admin-status__form {
+      display: flex;
+      justify-content: center;
+}
+
+.admin-status__button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+      border-radius: 50%;
+      transition: background-color 0.2s;
+}
+
+.admin-status__button:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+}
+
+.admin-status__icon {
+      font-size: 18px;
+}
+
+.admin-status__icon--locked {
+      color: #f44336;
+}
+
+.admin-status__icon--unlocked {
+      color: #4CAF50;
+}
+
+.admin-container__empty-message {
+      text-align: center;
+      padding: 40px;
+      color: #666;
+      font-style: italic;
 }

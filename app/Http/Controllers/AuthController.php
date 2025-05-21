@@ -18,11 +18,20 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('/contacts');
+            $request->session()->regenerate();
+
+            $user = Auth::user();
+
+            if ($user->is_admin) {
+                return redirect()->route('admin.dashboard');
+            }
+
+            return redirect()->route('contacts.index');
         }
 
         return back()->withErrors(['loginError' => 'Invalid credentials']);
     }
+
 
     public function showRegisterForm()
     {
