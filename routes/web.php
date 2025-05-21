@@ -16,4 +16,6 @@ Route::middleware('auth')->group(function () {
    
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::resource('contacts', ContactController::class);
+    Route::patch('/contacts/{contact}/toggle-block', [ContactController::class, 'toggleBlock'])->name('contacts.toggleBlock');
+
 });

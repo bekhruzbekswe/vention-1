@@ -68,4 +68,12 @@ class ContactController extends Controller
     {
         return view('contacts.show', compact('contact'));
     }
+
+    public function toggleBlock(Contact $contact)
+    {
+        $contact->is_blocked = !$contact->is_blocked;
+        $contact->save();
+
+        return redirect()->route('contacts.index')->with('success', $contact->is_blocked ? 'Contact blocked.' : 'Contact unblocked.');
+    }
 }

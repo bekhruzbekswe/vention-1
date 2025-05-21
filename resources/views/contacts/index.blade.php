@@ -35,6 +35,13 @@
                                         Delete
                                     </button>
                                 </form>
+                                <!-- <form action="{{ route('contacts.toggleBlock', $contact) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('PATCH')
+                                    <button type="submit" class="btn btn-{{ $contact->is_blocked ? 'success' : 'warning' }}">
+                                        {{ $contact->is_blocked ? 'Unblock' : 'Block' }}
+                                    </button>
+                                </form> -->
                             </div>
                         </td>
 
