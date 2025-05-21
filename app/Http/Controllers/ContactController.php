@@ -9,7 +9,7 @@ class ContactController extends Controller
 {
     public function index()
     {
-        $contacts = Contact::latest()->get();
+        $contacts = auth()->user()->contacts()->latest()->get();
         return view('contacts.index', compact('contacts'));
     }
 
@@ -28,15 +28,13 @@ class ContactController extends Controller
                 'regex:/^\+?\d{10,20}$/',
             ],
             'notes' => 'nullable|string',
-        ], [
-            'phone.regex' => 'Invalid phone number',
         ]);
-        
 
-        Contact::create($validated);
+        auth()->user()->contacts()->create($validated);
 
         return redirect()->route('contacts.index')->with('success', 'Contact created successfully.');
     }
+
 
     public function edit(Contact $contact)
     {
