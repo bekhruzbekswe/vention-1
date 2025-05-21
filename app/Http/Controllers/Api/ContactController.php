@@ -40,15 +40,15 @@ class ContactController extends Controller
         ], [
             'phone.regex' => 'Invalid phone number',
         ]);
-        
-        $contact = Contact::create($validated);
-
+    
+        $contact = auth()->user()->contacts()->create($validated);
+    
         return response()->json([
             'status' => true,
             'message' => 'Contact created successfully',
             'data' => $contact
         ], 201);
-    }
+    }    
 
     /**
      *
