@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\App;
+use App\Http\Middleware\IsAdmin;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 
 class AppServiceProvider extends ServiceProvider
@@ -49,5 +50,7 @@ class AppServiceProvider extends ServiceProvider
         app('router')->middlewareGroup('api', [
             'json.response',
         ]);
+
+        app('router')->aliasMiddleware('is_admin', IsAdmin::class);
     }
 }

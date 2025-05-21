@@ -72,6 +72,6 @@ class ContactController extends Controller
         $contact->is_blocked = !$contact->is_blocked;
         $contact->save();
 
-        return redirect()->route('contacts.index')->with('success', $contact->is_blocked ? 'Contact blocked.' : 'Contact unblocked.');
+        return redirect()->route('admin.dashboard')->with('success', $contact->is_blocked ? 'Contact blocked.' : 'Contact unblocked.');
     }
 }
